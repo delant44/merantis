@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merantis - Conseil en transformation organisationnelle & digitale</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple-50: #EEEDFE;
+      --purple-100: #CECBF6;
+      --purple-400: #7F77DD;
+      --purple-600: #534AB7;
+      --purple-800: #3C3489;
+      --purple-900: #26215C;
+      --gray-50: #F8F8F7;
+      --gray-100: #F1EFE8;
+      --gray-200: #E2E0D8;
+      --gray-400: #888780;
+      --gray-600: #5F5E5A;
+      --gray-900: #1A1A18;
+      --white: #FFFFFF;
+      --font-display: 'Sora', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--gray-900);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--gray-900);
+      text-decoration: none;
+    }
+    .nav-logo { color: var(--purple-600); }
+    .nav-logo span { color: var(--purple-600); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      color: var(--gray-600);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gray-900); }
+
+    .nav-cta {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 20px;
+      background: var(--gray-900);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 96px 48px 80px;
+      text-align: center;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--purple-600);
+      background: var(--purple-50);
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      max-width: 620px;
+      margin: 0 auto 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--purple-600);
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--gray-600);
+      max-width: 440px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 28px;
+      background: var(--gray-900);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+
+    .btn-secondary {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 28px;
+      background: transparent;
+      color: var(--gray-900);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: var(--gray-100); }
+
+    /* ── EXPERTISES ── */
+    .expertise {
+      padding: 80px 48px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple-600);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      font-size: 15px;
+      color: var(--gray-600);
+      max-width: 520px;
+      margin-bottom: 48px;
+      line-height: 1.65;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .svc {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .svc:hover {
+      border-color: var(--purple-400);
+      box-shadow: 0 4px 24px rgba(127,119,221,0.08);
+    }
+
+    .svc-num {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--purple-400);
+      margin-bottom: 16px;
+    }
+
+    .svc h3 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .svc p {
+      font-size: 13px;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    /* ── APPROCHE ── */
+    .approche {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .approche-vis {
+      background: var(--purple-50);
+      min-height: 360px;
+      border-right: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0;
+      padding: 48px;
+    }
+
+    .step-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+      max-width: 260px;
+    }
+
+    .step-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--purple-600);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--purple-50);
+      flex-shrink: 0;
+    }
+
+    .step-label {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--purple-800);
+    }
+
+    .step-connector {
+      width: 2px;
+      height: 24px;
+      background: var(--purple-100);
+      margin-left: 17px;
+    }
+
+    .approche-text {
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--white);
+    }
+
+    .approche-text h2 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .approche-text p {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .pill {
+      font-size: 12px;
+      padding: 5px 14px;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-full);
+      color: var(--gray-600);
+      background: var(--white);
+    }
+
+    /* ── CTA ── */
+    .cta {
+      padding: 96px 48px;
+      text-align: center;
+      background: var(--gray-50);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .cta h2 {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    .cta p {
+      font-size: 16px;
+      color: var(--gray-600);
+      max-width: 420px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+
+    .cta-btns { display: flex; gap: 12px; justify-content: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 48px 48px 32px;
+      background: var(--white);
+      border-top: 1px solid var(--gray-200);
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      display: block;
+      text-decoration: none;
+      color: var(--gray-900);
+    }
+    .footer-logo { color: var(--purple-600); }
+    .footer-logo span { color: var(--purple-600); }
+
+    .footer-brand p {
+      font-size: 13px;
+      color: var(--gray-600);
+      line-height: 1.65;
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gray-400);
+      margin-bottom: 14px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: var(--gray-600);
+      margin-bottom: 8px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--gray-900); }
+
+    .footer-bottom {
+      padding: 20px 48px;
+      border-top: 1px solid var(--gray-200);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-bottom span {
+      font-size: 12px;
+      color: var(--gray-400);
+    }
+    .footer-bottom a {
+      font-size: 12px;
+      color: var(--gray-400);
+      text-decoration: none;
+    }
+    .footer-bottom a:hover { color: var(--gray-600); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero { padding: 64px 24px 56px; }
+      .hero h1 { font-size: 34px; }
+      .expertise { padding: 56px 24px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .approche { grid-template-columns: 1fr; }
+      .approche-vis { border-right: none; border-bottom: 1px solid var(--gray-200); min-height: 240px; }
+      .approche-text { padding: 40px 24px; }
+      .cta { padding: 64px 24px; }
+      footer { grid-template-columns: 1fr 1fr; padding: 40px 24px 24px; }
+      .footer-bottom { padding: 16px 24px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Mer<span>antis</span></a>
+    <ul class="nav-links">
+      <li><a href="#expertises">Expertises</a></li>
+      <li><a href="#approche">Notre approche</a></li>
+      <li><a href="presentation.html">Présentation</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="tel:0672709351" style="font-size:13px;color:var(--gray-600);text-decoration:none;">06 72 70 93 51</a>
+      <a href="#contact" class="nav-cta">Prendre contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">Conseil en transformation</div>
+    <h1>Accompagner votre <em>transformation</em> organisationnelle & digitale</h1>
+    <p>Merantis aide les organisations à évoluer avec méthode, en alignant stratégie, culture et technologies pour créer une valeur durable.</p>
+    <div class="hero-btns">
+      <a href="#expertises" class="btn-primary">Découvrir nos expertises</a>
+      <a href="#contact" class="btn-secondary">Parler de votre projet</a>
+    </div>
+  </section>
+
+  <!-- EXPERTISES -->
+  <section class="expertise" id="expertises">
+    <div class="section-eyebrow">Nos expertises</div>
+    <div class="section-title">Ce que nous faisons</div>
+    <p class="section-sub">De la stratégie à l'exécution, Merantis intervient sur l'ensemble des leviers de transformation de votre organisation.</p>
+    <div class="services-grid">
+      <div class="svc">
+        <div class="svc-num">01</div>
+        <h3>Stratégie de transformation</h3>
+        <p>Définir une feuille de route claire pour piloter le changement et atteindre vos objectifs à long terme.</p>
+      </div>
+      <div class="svc">
+        <div class="svc-num">02</div>
+        <h3>Conduite du changement</h3>
+        <p>Embarquer les équipes et les dirigeants dans les évolutions culturelles et organisationnelles.</p>
+      </div>
+      <div class="svc">
+        <div class="svc-num">03</div>
+        <h3>Transformation digitale</h3>
+        <p>Accompagner l'adoption des outils et pratiques numériques au cœur de votre métier.</p>
+      </div>
+      <div class="svc">
+        <div class="svc-num">04</div>
+        <h3>Optimisation des processus</h3>
+        <p>Identifier les inefficacités et repenser vos opérations pour gagner en agilité et en performance.</p>
+      </div>
+      <div class="svc">
+        <div class="svc-num">05</div>
+        <h3>Gouvernance & pilotage</h3>
+        <p>Structurer les instances de décision et les indicateurs pour piloter la transformation avec rigueur.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROCHE -->
+  <section id="approche">
+    <div class="approche">
+      <div class="approche-vis">
+        <div class="step-row"><div class="step-dot">1</div><div class="step-label">Diagnostic</div></div>
+        <div class="step-connector"></div>
+        <div class="step-row"><div class="step-dot">2</div><div class="step-label">Co-construction</div></div>
+        <div class="step-connector"></div>
+        <div class="step-row"><div class="step-dot">3</div><div class="step-label">Déploiement</div></div>
+        <div class="step-connector"></div>
+        <div class="step-row"><div class="step-dot">4</div><div class="step-label">Stabilisation & bilan</div></div>
+      </div>
+      <div class="approche-text">
+        <div class="section-eyebrow">Notre approche</div>
+        <h2>Une méthode éprouvée, adaptée à chaque contexte</h2>
+        <p>Chez Merantis, nous ne croyons pas aux solutions toutes faites. Chaque mission commence par une écoute approfondie pour construire une réponse sur mesure, ancrée dans les réalités de votre organisation.</p>
+        <p>Nous travaillons en étroite collaboration avec vos équipes à chaque étape, pour garantir l'adhésion et la durabilité des transformations engagées.</p>
+        <div class="pill-row">
+          <span class="pill">Co-construction</span>
+          <span class="pill">Agilité</span>
+          <span class="pill">Sur mesure</span>
+          <span class="pill">Impact durable</span>
+          <span class="pill">Résilience</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASQUETTES -->
+  <section style="padding: 80px 48px; border-bottom: 1px solid var(--gray-200); background: var(--white);">
+    <div class="section-eyebrow">Nos modes d'intervention</div>
+    <div class="section-title">Une fonction adaptée à chaque mission</div>
+    <p class="section-sub">Selon le contexte et les besoins, nous intervenons avec la fonction la plus adaptée, toujours au service de la réussite de votre projet.</p>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+
+      <div style="border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 28px 22px;">
+        <div style="font-family: var(--font-display); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--purple-400); margin-bottom: 14px;">AMOA</div>
+        <h3 style="font-family: var(--font-display); font-size: 15px; font-weight: 500; margin-bottom: 10px;">Assistance à maîtrise d'ouvrage</h3>
+        <p style="font-size: 13px; color: var(--gray-600); line-height: 1.6;">Rédaction des cahiers des charges, spécifications fonctionnelles, recettes et notes de cadrage. Interface entre métiers et prestataires techniques.</p>
+      </div>
+
+      <div style="border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 28px 22px;">
+        <div style="font-family: var(--font-display); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--purple-400); margin-bottom: 14px;">CONSULTANT</div>
+        <h3 style="font-family: var(--font-display); font-size: 15px; font-weight: 500; margin-bottom: 10px;">Conseil & expertise</h3>
+        <p style="font-size: 13px; color: var(--gray-600); line-height: 1.6;">Diagnostic organisationnel, recommandations stratégiques, animation d'ateliers de travail et accompagnement à la décision.</p>
+      </div>
+
+      <div style="border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 28px 22px;">
+        <div style="font-family: var(--font-display); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--purple-400); margin-bottom: 14px;">CHEF DE PROJET</div>
+        <h3 style="font-family: var(--font-display); font-size: 15px; font-weight: 500; margin-bottom: 10px;">Pilotage opérationnel</h3>
+        <p style="font-size: 13px; color: var(--gray-600); line-height: 1.6;">Élaboration et suivi du plan projet, coordination des parties prenantes, gestion des risques, respect des jalons et des livrables.</p>
+      </div>
+
+      <div style="border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 28px 22px;">
+        <div style="font-family: var(--font-display); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--purple-400); margin-bottom: 14px;">DIRECTEUR DE PROJET</div>
+        <h3 style="font-family: var(--font-display); font-size: 15px; font-weight: 500; margin-bottom: 10px;">Direction & gouvernance</h3>
+        <p style="font-size: 13px; color: var(--gray-600); line-height: 1.6;">Pilotage stratégique, suivi des indicateurs de performance, reporting à la direction et animation des instances de gouvernance.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <h2>Prêt à engager votre transformation ?</h2>
+    <p>Parlons de votre projet. Un premier échange de 30 minutes suffit souvent pour identifier les bons leviers.</p>
+    <div class="cta-btns">
+      <a href="mailto:contact@merantis.fr" class="btn-primary">Prendre rendez-vous</a>
+      <a href="mailto:contact@merantis.fr" class="btn-secondary">Nous écrire</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <a href="#" class="footer-logo">Mer<span>antis</span></a>
+      <p>Conseil en transformation organisationnelle et digitale. Nous accompagnons les organisations vers un changement durable.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Expertises</h4>
+      <a href="#expertises">Stratégie</a>
+      <a href="#expertises">Conduite du changement</a>
+      <a href="#expertises">Digital</a>
+      <a href="#expertises">Processus</a>
+      <a href="#expertises">Gouvernance</a>
+    </div>
+    <div class="footer-col">
+      <h4>Entreprise</h4>
+      <a href="#approche">Notre approche</a>
+      <a href="presentation.html">Présentation</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:contact@merantis.fr">contact@merantis.fr</a>
+      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      <a>Nantes, France</a>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <span>© 2026 Merantis. Tous droits réservés.</span>
+    <div style="display:flex;gap:16px;">
+      <a href="#">Mentions légales</a>
+      <a href="#">Politique de confidentialité</a>
+    </div>
+  </div>
+
+</body>
+</html>
